@@ -1,0 +1,686 @@
+[
+    {
+        "name": "سورة الفاتحة",
+        "englishName": "Al-Faatiha",
+        "numberOfAyahs": 7,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة البقرة",
+        "englishName": "Al-Baqara",
+        "numberOfAyahs": 286,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة ال عمران",
+        "englishName": "Aal-i-Imraan",
+        "numberOfAyahs": 200,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة النساء",
+        "englishName": "An-Nisaa",
+        "numberOfAyahs": 176,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة المائدة",
+        "englishName": "Al-Maaida",
+        "numberOfAyahs": 120,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الأنعام",
+        "englishName": "Al-An'aam",
+        "numberOfAyahs": 165,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الأعراف",
+        "englishName": "Al-A'raaf",
+        "numberOfAyahs": 206,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الأنفال",
+        "englishName": "Al-Anfaal",
+        "numberOfAyahs": 75,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة التوبة",
+        "englishName": "At-Tawba",
+        "numberOfAyahs": 129,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة يونس",
+        "englishName": "Yunus",
+        "numberOfAyahs": 109,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة هود",
+        "englishName": "Hud",
+        "numberOfAyahs": 123,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة يوسف",
+        "englishName": "Yusuf",
+        "numberOfAyahs": 111,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الرعد",
+        "englishName": "Ar-Ra'd",
+        "numberOfAyahs": 43,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة إبراهيم",
+        "englishName": "Ibrahim",
+        "numberOfAyahs": 52,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الحجر",
+        "englishName": "Al-Hijr",
+        "numberOfAyahs": 99,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة النحل",
+        "englishName": "An-Nahl",
+        "numberOfAyahs": 128,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الإسراء",
+        "englishName": "Al-Israa",
+        "numberOfAyahs": 111,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الكهف",
+        "englishName": "Al-Kahf",
+        "numberOfAyahs": 110,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة مريم",
+        "englishName": "Maryam",
+        "numberOfAyahs": 98,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة طه",
+        "englishName": "Taa-Haa",
+        "numberOfAyahs": 135,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الأنبياء",
+        "englishName": "Al-Anbiyaa",
+        "numberOfAyahs": 112,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الحج",
+        "englishName": "Al-Hajj",
+        "numberOfAyahs": 78,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة المؤمنون",
+        "englishName": "Al-Muminoon",
+        "numberOfAyahs": 118,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة النور",
+        "englishName": "An-Noor",
+        "numberOfAyahs": 64,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الفرقان",
+        "englishName": "Al-Furqaan",
+        "numberOfAyahs": 77,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الشعراء",
+        "englishName": "Ash-Shu'araa",
+        "numberOfAyahs": 227,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة النمل",
+        "englishName": "An-Naml",
+        "numberOfAyahs": 93,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة القصص",
+        "englishName": "Al-Qasas",
+        "numberOfAyahs": 88,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة العنكبوت",
+        "englishName": "Al-Ankaboot",
+        "numberOfAyahs": 69,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الروم",
+        "englishName": "Ar-Room",
+        "numberOfAyahs": 60,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة لقمان",
+        "englishName": "Luqman",
+        "numberOfAyahs": 34,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة السجدة",
+        "englishName": "As-Sajda",
+        "numberOfAyahs": 30,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الأحزاب",
+        "englishName": "Al-Ahzaab",
+        "numberOfAyahs": 73,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة سبإ",
+        "englishName": "Saba",
+        "numberOfAyahs": 54,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة فاطر",
+        "englishName": "Faatir",
+        "numberOfAyahs": 45,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة يس",
+        "englishName": "Yaseen",
+        "numberOfAyahs": 83,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الصافات",
+        "englishName": "As-Saaffaat",
+        "numberOfAyahs": 182,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة ص",
+        "englishName": "Saad",
+        "numberOfAyahs": 88,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الزمر",
+        "englishName": "Az-Zumar",
+        "numberOfAyahs": 75,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة غافر",
+        "englishName": "Ghafir",
+        "numberOfAyahs": 85,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة فصلت",
+        "englishName": "Fussilat",
+        "numberOfAyahs": 54,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الشورى",
+        "englishName": "Ash-Shura",
+        "numberOfAyahs": 53,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الزخرف",
+        "englishName": "Az-Zukhruf",
+        "numberOfAyahs": 89,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الدخان",
+        "englishName": "Ad-Dukhaan",
+        "numberOfAyahs": 59,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الجاثية",
+        "englishName": "Al-Jaathiya",
+        "numberOfAyahs": 37,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الأحقاف",
+        "englishName": "Al-Ahqaf",
+        "numberOfAyahs": 35,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة محمد",
+        "englishName": "Muhammad",
+        "numberOfAyahs": 38,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الفتح",
+        "englishName": "Al-Fath",
+        "numberOfAyahs": 29,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الحجرات",
+        "englishName": "Al-Hujuraat",
+        "numberOfAyahs": 18,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة ق",
+        "englishName": "Qaaf",
+        "numberOfAyahs": 45,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الذاريات",
+        "englishName": "Adh-Dhaariyat",
+        "numberOfAyahs": 60,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الطور",
+        "englishName": "At-Tur",
+        "numberOfAyahs": 49,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة النجم",
+        "englishName": "An-Najm",
+        "numberOfAyahs": 62,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة القمر",
+        "englishName": "Al-Qamar",
+        "numberOfAyahs": 55,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الرحمن",
+        "englishName": "Ar-Rahmaan",
+        "numberOfAyahs": 78,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الواقعة",
+        "englishName": "Al-Waaqia",
+        "numberOfAyahs": 96,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الحديد",
+        "englishName": "Al-Hadid",
+        "numberOfAyahs": 29,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة المجادلة",
+        "englishName": "Al-Mujaadila",
+        "numberOfAyahs": 22,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الحشر",
+        "englishName": "Al-Hashr",
+        "numberOfAyahs": 24,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الممتحنة",
+        "englishName": "Al-Mumtahana",
+        "numberOfAyahs": 13,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الصف",
+        "englishName": "As-Saff",
+        "numberOfAyahs": 14,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الجمعة",
+        "englishName": "Al-Jumu'a",
+        "numberOfAyahs": 11,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة المنافقون",
+        "englishName": "Al-Munaafiqoon",
+        "numberOfAyahs": 11,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة التغابن",
+        "englishName": "At-Taghaabun",
+        "numberOfAyahs": 18,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الطلاق",
+        "englishName": "At-Talaaq",
+        "numberOfAyahs": 12,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة التحريم",
+        "englishName": "At-Tahrim",
+        "numberOfAyahs": 12,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الملك",
+        "englishName": "Al-Mulk",
+        "numberOfAyahs": 30,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة القلم",
+        "englishName": "Al-Qalam",
+        "numberOfAyahs": 52,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الحاقة",
+        "englishName": "Al-Haaqqa",
+        "numberOfAyahs": 52,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة المعارج",
+        "englishName": "Al-Ma'aarij",
+        "numberOfAyahs": 44,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة نوح",
+        "englishName": "Nooh",
+        "numberOfAyahs": 28,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الجن",
+        "englishName": "Al-Jinn",
+        "numberOfAyahs": 28,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة المزمل",
+        "englishName": "Al-Muzzammil",
+        "numberOfAyahs": 20,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة المدثر",
+        "englishName": "Al-Muddaththir",
+        "numberOfAyahs": 56,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة القيامة",
+        "englishName": "Al-Qiyaama",
+        "numberOfAyahs": 40,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الإنسان",
+        "englishName": "Al-Insaan",
+        "numberOfAyahs": 31,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة المرسلات",
+        "englishName": "Al-Mursalaat",
+        "numberOfAyahs": 50,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة النبإ",
+        "englishName": "An-Naba",
+        "numberOfAyahs": 40,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة النازعات",
+        "englishName": "An-Naazi'aat",
+        "numberOfAyahs": 46,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة عبس",
+        "englishName": "Abasa",
+        "numberOfAyahs": 42,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة التكوير",
+        "englishName": "At-Takwir",
+        "numberOfAyahs": 29,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الانفطار",
+        "englishName": "Al-Infitaar",
+        "numberOfAyahs": 19,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة المطففين",
+        "englishName": "Al-Mutaffifin",
+        "numberOfAyahs": 36,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الانشقاق",
+        "englishName": "Al-Inshiqaaq",
+        "numberOfAyahs": 25,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة البروج",
+        "englishName": "Al-Burooj",
+        "numberOfAyahs": 22,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الطارق",
+        "englishName": "At-Taariq",
+        "numberOfAyahs": 17,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الأعلى",
+        "englishName": "Al-A'laa",
+        "numberOfAyahs": 19,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الغاشية",
+        "englishName": "Al-Ghaashiya",
+        "numberOfAyahs": 26,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الفجر",
+        "englishName": "Al-Fajr",
+        "numberOfAyahs": 30,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة البلد",
+        "englishName": "Al-Balad",
+        "numberOfAyahs": 20,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الشمس",
+        "englishName": "Ash-Shams",
+        "numberOfAyahs": 15,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الليل",
+        "englishName": "Al-Lail",
+        "numberOfAyahs": 21,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الضحى",
+        "englishName": "Ad-Dhuhaa",
+        "numberOfAyahs": 11,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الشرح",
+        "englishName": "Ash-Sharh",
+        "numberOfAyahs": 8,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة التين",
+        "englishName": "At-Tin",
+        "numberOfAyahs": 8,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة العلق",
+        "englishName": "Al-Alaq",
+        "numberOfAyahs": 19,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة القدر",
+        "englishName": "Al-Qadr",
+        "numberOfAyahs": 5,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة البينة",
+        "englishName": "Al-Bayyina",
+        "numberOfAyahs": 8,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة الزلزلة",
+        "englishName": "Az-Zalzala",
+        "numberOfAyahs": 8,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة العاديات",
+        "englishName": "Al-Aadiyaat",
+        "numberOfAyahs": 11,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة القارعة",
+        "englishName": "Al-Qaari'a",
+        "numberOfAyahs": 11,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة التكاثر",
+        "englishName": "At-Takaathur",
+        "numberOfAyahs": 8,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة العصر",
+        "englishName": "Al-Asr",
+        "numberOfAyahs": 3,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الهمزة",
+        "englishName": "Al-Humaza",
+        "numberOfAyahs": 9,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الفيل",
+        "englishName": "Al-Fil",
+        "numberOfAyahs": 5,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة قريش",
+        "englishName": "Quraish",
+        "numberOfAyahs": 4,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الماعون",
+        "englishName": "Al-Maa'un",
+        "numberOfAyahs": 7,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الكوثر",
+        "englishName": "Al-Kawthar",
+        "numberOfAyahs": 3,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الكافرون",
+        "englishName": "Al-Kaafiroon",
+        "numberOfAyahs": 6,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة النصر",
+        "englishName": "An-Nasr",
+        "numberOfAyahs": 3,
+        "revelationType": "Medinan"
+    },
+    {
+        "name": "سورة المسد",
+        "englishName": "Al-Masad",
+        "numberOfAyahs": 5,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الإخلاص",
+        "englishName": "Al-Ikhlaas",
+        "numberOfAyahs": 4,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الفلق",
+        "englishName": "Al-Falaq",
+        "numberOfAyahs": 5,
+        "revelationType": "Meccan"
+    },
+    {
+        "name": "سورة الناس",
+        "englishName": "An-Naas",
+        "numberOfAyahs": 6,
+        "revelationType": "Meccan"
+    }
+]

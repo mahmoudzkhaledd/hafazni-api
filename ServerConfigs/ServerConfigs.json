@@ -1,0 +1,21 @@
+{
+    "version": 1,
+    "waitingBetweenSends": 60,
+    "waitingBetweenEndTrails": 86400,
+    "defaultSendTrails": 10,
+    "defaultSendMistakes": 5,
+    "maxFileSize": 5000000,
+    "maxSearch": 10,
+    "accountTypesStates": [
+        "saved",
+        "pending",
+        "accepted",
+        "refused"
+    ],
+    "ratingCategories": [
+        "سرعة الرد",
+        "صوت المحفظ",
+        "يجيد القراءات المحددة",
+        "الالتزام بالمواعيد"
+    ]
+}
