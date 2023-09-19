@@ -4,12 +4,14 @@ const { updateUserAccountType,
     updateMemorizerAccountType,
     removeUserAccountType,
     removeMemorizerAccountType,
+    deleteMemorizerCertificate,
 } = require('./Service/UpdateAccountType');
 const multer = require('multer');
 
-const upload = multer({ storage: multer.memoryStorage() }).single('filename');
+const upload = multer({ storage: multer.memoryStorage() })
+    .single('filename');
 appRouter.get('/', accountTypeService);
-
+appRouter.delete('/certificate', deleteMemorizerCertificate);
 appRouter.route('/user')
     .put(updateUserAccountType)
     .delete(removeUserAccountType);

@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.ObjectId,
         ref: "User",
-        index:true,
+        index: true,
         required: [true, "User id is required !"]
     },
     state: {
@@ -40,11 +40,10 @@ const schema = new mongoose.Schema({
         min: 1,
         max: 10,
     }],
-    plans: [{
-        type: mongoose.Schema.ObjectId,
-        ref: "Plan",
-        required: [true, "Plan Id is required!"],
-    }],
+    plansCount: {
+        type: Number,
+        default: 0,
+    },
     promoCodes: [{
         type: mongoose.Schema.ObjectId,
         ref: "PromoCode",

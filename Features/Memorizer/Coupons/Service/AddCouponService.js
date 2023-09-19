@@ -30,7 +30,6 @@ exports.addCoupon = asyncHandeler(async (req, res, next) => {
     if (req.body.endingDate != null) { 
         req.body.endingDate =  Date(req.body.endingDate);
     }
-    console.log(req.body.endingDate)
     const promoCode = await PromoCode.create(req.body);
     data.promoCodes.push(promoCode._id);
     await data.save();

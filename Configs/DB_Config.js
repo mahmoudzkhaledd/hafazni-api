@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Plan = require('../Models/Plan');
+const Order = require('../Models/Order');
 
 module.exports = async function configDbConnection() {
     const url = process.env.MONGO_URL;
@@ -10,6 +10,7 @@ module.exports = async function configDbConnection() {
     }).then(() => {
         console.log("Connected To Database");
     });
+   
     // await Plan.create({
     //     title: "asd",
     //     duration: 12,

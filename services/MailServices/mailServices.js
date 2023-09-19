@@ -19,8 +19,8 @@ exports.sendEmail = async (emailTo, html) => {
         transporter.sendMail({
             from: email,
             to: emailTo,
-            subject: "hafazni, Verify your account",
-            html: html,
+            subject: "Hafazni, Verify your account",
+            text: html,
         }, (err, info) => {
             if (err) return rej(err);
             return res(info.accepted);

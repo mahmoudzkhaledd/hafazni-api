@@ -11,7 +11,7 @@ exports.updatePromoCode = asyncHandeler(async (req, res, next) => {
 
     let tmp;
     promo.forEach(p => {
-        console.log(p)
+
         if (p.name == name && p._id != couponId) {
             return res.sendStatus(402);
         }

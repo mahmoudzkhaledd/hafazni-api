@@ -18,6 +18,10 @@ const schema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required!"]
     },
+    deviceId: {
+        type: String,
+        required: [true, "Device Id is required!"],
+    },
     verifiedEmail: {
         type: Boolean,
         default: false,
@@ -37,9 +41,9 @@ const schema = new mongoose.Schema({
     },
     country: {
         type: String,
-        required:[true,"Country Date is required!"]
+        required: [true, "Country Date is required!"]
     },
-    prifilePic: String,
+    profilePic: String,
     userData: {
         type: mongoose.Schema.ObjectId,
         ref: "UserData",

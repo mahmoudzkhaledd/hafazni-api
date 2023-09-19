@@ -1,14 +1,44 @@
 const firebase = require('firebase/app')
 firebase.initializeApp(require('../Config/StorageConfig').firebaseConfig);
 
-const { getStorage, ref, getDownloadURL, uploadBytes } = require('firebase/storage');
+const { getStorage, ref, getDownloadURL, uploadBytes, listAll, deleteObject } = require('firebase/storage');
 const storage = getStorage();
-exports.uploadFile = (file) => {
+
+function getPathStorageFromUrl(url) {
+    const baseUrl = "https://firebasestorage.googleapis.com/v0/b/hafazni-476fb.appspot.com/o/";
+    let imagePath = url.replace(baseUrl, "");
+
+    const indexOfEndPath = imagePath.indexOf("?");
+
+    imagePath = imagePath.substring(0, indexOfEndPath);
+
+    imagePath = imagePath.replaceAll("%2F", "/");
+
+
+    return imagePath;
+}
+
+exports.deleteFile = (url) => {
     return new Promise(async (res, rej) => {
-        const storageRef = ref(storage, file.originalname);
-        uploadBytes(storageRef, file.buffer)
-            .then(async (result) => res(await getDownloadURL(storageRef)))
-            .catch(err => rej(err));
+        const fileRef = ref(storage, getPathStorageFromUrl(url));
+        deleteObject(fileRef).then(result => res(true))
+        .catch(err => res(false));
+    });
+}
+
+exports.uploadFile = (file, filePath, fileName) => {
+    return new Promise(async (res, rej) => {
+        const splt = file.originalname.split('.');
+        const fName = `${fileName}.${splt.length == 0 ? "png" : splt[1]}`;
+        const storageRef = ref(storage, `${filePath}`);
+        const result = await listAll(storageRef);
+        const fileRef = ref(storage, `${filePath}/${fName}`);
+        uploadBytes(fileRef, file.buffer)
+            .then(async (result) => res(await getDownloadURL(fileRef)))
+            .catch(async (err) => {
+                //console.log(err);
+                rej(err)
+            });
     });
 }
 exports.uploadFiles = (files) => {

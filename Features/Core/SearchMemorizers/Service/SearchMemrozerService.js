@@ -36,7 +36,7 @@ exports.searchMemroizer = async (req, res, next) => {
     const users = await MemorizerData.find(options)
         .skip(page * maxSearch)
         .limit(maxSearch)
-        .populate('userId', { firstName: 1, lastName: 1, prifilePic: 1, })
+        .populate('userId', { firstName: 1, lastName: 1, profilePic: 1, })
     res.status(200).json({
         result: users,
     });

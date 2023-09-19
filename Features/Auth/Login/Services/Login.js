@@ -17,7 +17,9 @@ exports.loginUser = asyncHandeler(async (req, res, next) => {
             .populate("memorizerData");
     }
 
-    if (user == null) return res.status(401)
+    if (user == null
+       // || user.deviceId != null
+    ) return res.status(401)
         .json({ msg: 'Please Check Your Email and Password' });
     if (userModel == null) {
         const match = await bcrypt.compare(password, user.password);
@@ -40,6 +42,9 @@ exports.loginUser = asyncHandeler(async (req, res, next) => {
             token,
         });
     }
+
+    await user.updateOne({deviceId:req.body.deviceToken});
+    
     return res.status(200).json({
         user,
         token,

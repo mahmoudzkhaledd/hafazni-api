@@ -1,7 +1,7 @@
 const asyncHandeler = require('express-async-handler');
 const User = require('../../../../Models/User');
 const MemorizerData = require('../../../../Models/MemorizerData');
-const { uploadFile } = require('../../../../services/Firebase/Storage/StorageUpload');
+const { uploadFile, deleteFile } = require('../../../../services/Firebase/Storage/StorageUpload');
 const UserData = require('../../../../Models/UserData');
 
 exports.updateUserAccountType = asyncHandeler(async (req, res, next) => {
@@ -56,29 +56,47 @@ exports.removeUserAccountType = asyncHandeler(
 exports.removeMemorizerAccountType = asyncHandeler(
     async (req, res, next) => {
         const userModel = res.locals.userModel;
-        const result = await MemorizerData.deleteOne({ userId: userModel.id });
+        const result = await MemorizerData.findOneAndDelete({ userId: userModel.id });
         await User.updateOne({ _id: userModel.id }, { memorizerData: null });
+
         res.sendStatus(200);
     }
 );
 
-
+exports.deleteMemorizerCertificate = asyncHandeler(async (req, res, next) => {
+    const userModel = res.locals.userModel;
+    const result = await deleteFile(req.body.url);
+    if (result == true) {
+        await MemorizerData.updateOne({ userId: userModel.id },
+            { certificant: null, });
+    }
+    res.status(200).json({ result });
+})
 
 // certificants
 // describtion
 // readings 
 exports.updateMemorizerAccountType = asyncHandeler(async (req, res, next) => {
     const userModel = res.locals.userModel;
-    const user = await User.findById(userModel.id, { _id: 1, });
+    const user = await User.findById(userModel.id, { _id: 1, certificant: 1, });
     if (user == null) {
         return res.status(404).json({ msg: "user not found !" });
     }
     const { description, readings, save } = req.body;
     let url;
+    const uploadOnly = req.query.uploadOnly == null ? false : Boolean(req.query.uploadOnly);
     if (req.file != null) {
-        url = req.file != null ? await uploadFile(req.file)
-            .then(res => res)
-            .catch(err => null) : null;
+        url = req.file != null ?
+            await uploadFile(req.file, `/users/${user._id}/data`, 'certificate')
+                .then(res => res)
+                .catch(err => null) : null;
+        delete req.file;
+        if (uploadOnly) {
+            await MemorizerData.updateOne({ userId: user._id, }, { certificant: url, });
+            return res.status(200).json({
+                url,
+            });
+        }
     }
     const options = {
         certificant: url,

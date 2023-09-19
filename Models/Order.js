@@ -1,5 +1,11 @@
 const mongoose = require('mongoose');
+const { increment } = require('./Counter');
+
 const schema = new mongoose.Schema({
+    number: {
+        type: Number,
+        default: 0,
+    },
     userFrom: {
         type: mongoose.Schema.ObjectId,
         ref: "User",
@@ -11,19 +17,35 @@ const schema = new mongoose.Schema({
         required: [true, "Memorizer Id is required"],
     },
     note: String,
-    startingTime: {
-        type: Date,
-        default: null,
-    },
-    accepted: {
-        type: Boolean,
-        default: false,
+    state: {
+        type: String,
+        enum: ['pending', 'sent', 'accepted', 'refused', 'canceled'],
+        default: 'sent',
     },
     planId: {
         type: mongoose.Schema.ObjectId,
         ref: "Plan",
         required: [true, "Plan Id is required"],
     },
+    promoCode: {
+        type: mongoose.Schema.ObjectId,
+        ref: "PromoCode",
+        default: null,
+    },
+    afterCoupon: {
+        type: Number,
+        default: null,
+    },
+
 }, { timestamps: true, });
+
+
+schema.pre('save', function (next) {
+    const doc = this;
+    increment('orders').then(function (count) {
+        doc.number = count;
+        next();
+    });
+})
 
 module.exports = mongoose.model('Order', schema);

@@ -36,8 +36,12 @@ const schema = new mongoose.Schema({
     },
     state: {
         type: String,
-        enum: ['pending', 'accepted', 'refused', 'saved'],
+        enum: ['pending', 'accepted', 'refused', 'saved','hidden'],
         default: 'pending',
+    },
+    students: {
+        type: Number,
+        default: 0,
     },
     rating: {}
 }, { timestamps: true, });

@@ -5,6 +5,9 @@ const coreRoute = require('./Core/CoreRoutes');
 const memorizerRoute = require('./Memorizer/MemorizerRoutes');
 const { validatorMiddleware } = require('../middlewares/UserValidatorMiddleware');
 
+
+
+
 appRoute.use(authRoutes);
 
 appRoute.use(validatorMiddleware);
