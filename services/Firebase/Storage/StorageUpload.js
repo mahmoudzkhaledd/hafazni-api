@@ -11,9 +11,7 @@ function getPathStorageFromUrl(url) {
     const indexOfEndPath = imagePath.indexOf("?");
 
     imagePath = imagePath.substring(0, indexOfEndPath);
-
-    imagePath = imagePath.replaceAll("%2F", "/");
-
+    imagePath = String(imagePath).split('%2F').join('/');
 
     return imagePath;
 }
@@ -22,7 +20,7 @@ exports.deleteFile = (url) => {
     return new Promise(async (res, rej) => {
         const fileRef = ref(storage, getPathStorageFromUrl(url));
         deleteObject(fileRef).then(result => res(true))
-        .catch(err => res(false));
+            .catch(err => res(false));
     });
 }
 
@@ -36,7 +34,7 @@ exports.uploadFile = (file, filePath, fileName) => {
         uploadBytes(fileRef, file.buffer)
             .then(async (result) => res(await getDownloadURL(fileRef)))
             .catch(async (err) => {
-               
+
                 rej(err)
             });
     });
