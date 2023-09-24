@@ -7,24 +7,30 @@ exports.searchMemroizer = async (req, res, next) => {
         maxrating,
         readings,
         certificate,
-        page
+        begin,
+        end,
     } = req.query;
     const userModel = res.locals.userModel;
     const maxSearch = config.maxSearch;
-    countries = countries || [];
+
+    countries = (countries != null && countries != '[]') ? countries.slice(1, -1).split(', ') : null;
+
     maxrating = Number(maxrating) || 5;
     if (readings != null) {
         readings = JSON.parse(readings);
     }
-    page = Number(page) || 0;
+    begin = Number(begin) || 0;
+    end = Number(end) || 0;
 
     certificate = certificate == 'true';
+
     const options = {
         state: "accepted",
-        // userId: { "$ne": userModel.id },
+        userId: { "$ne": null },
         rating: { "$lte": maxrating },
-        certificant: { "$ne": null, },
-        readings: { "$in": readings }
+        certificant: { $ne: null, },
+        readings: { $in: readings },
+        country: { $in: countries },
     };
     if (!certificate) {
         delete options.certificant;
@@ -32,12 +38,23 @@ exports.searchMemroizer = async (req, res, next) => {
     if (readings == null || readings.length == 0) {
         delete options.readings;
     }
-    
+
+    if (countries == null || countries.length == 0) {
+        delete options.country;
+    }
+
     const users = await MemorizerData.find(options)
-        .skip(page * maxSearch)
-        .limit(maxSearch)
-        .populate('userId', { firstName: 1, lastName: 1, profilePic: 1, })
+        .skip(begin)
+        .limit(end - begin)
+        .populate('userId', { firstName: 1, lastName: 1, profilePic: 1, });
+    let c = begin;
+    for (let i = 0; i < users.length; i++) { 
+        users[i]['userId'].firstName = `${c+1}`;
+        c++;
+        console.log(users[i]['userId'])
+    }
     res.status(200).json({
         result: users,
+
     });
 }

@@ -23,5 +23,5 @@ const server = app.listen(PORT, () => {
 app.use(errorHandeler);
 process.on('unhandledRejection', (error) => {
     console.log(`Unhandeled Exeption ${error}`);
-    process.exit(1)
+   // process.exit(1)
 });

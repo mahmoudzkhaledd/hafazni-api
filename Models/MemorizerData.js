@@ -18,6 +18,10 @@ const schema = new mongoose.Schema({
         type: String,
         default: null,
     },
+    country: {
+        type: String,
+        default: null,
+    },
     rating: {
         type: Number,
         default: 0,

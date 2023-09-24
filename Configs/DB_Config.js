@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Order = require('../Models/Order');
 
 module.exports = async function configDbConnection() {
     const url = process.env.MONGO_URL;

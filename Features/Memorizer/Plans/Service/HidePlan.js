@@ -29,7 +29,7 @@ exports.hidePlan = asyncHandeler(async (req, res, next) => {
         }
         plan.state = "hidden";
     } else {
-        plan.state = "saved";
+        plan.state = 'accepted';
     }
     await plan.save();
     res.status(200).json({ planState: plan.state, });

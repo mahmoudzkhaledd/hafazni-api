@@ -1,5 +1,6 @@
 const asyncHandeler = require("express-async-handler");
 const User = require('../../../../Models/User');
+const Wallet = require('../../../../Models/Wallet');
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -9,7 +10,7 @@ exports.signup = asyncHandeler(async (req, res, next) => {
     req.body.password = await bcrypt.hash(req.body.password, salt);
     const user = await User.create(req.body).catch((err) => {
         if (err.code === 11000) {
-            
+
             res.status(409).send({ msg: 'User already exist!' });
             return null;
         }

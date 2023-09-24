@@ -9,11 +9,11 @@ exports.changeOrderState = asyncHandeler(async (req, res, next) => {
     const state = req.query.state || "pending";
     const order = res.locals.order;
 
-    if (order.state == 'canceled' && order.memorizerTo == userModel.id) {
+    if ((order.state == 'canceled' || order.state == 'running') && order.memorizerTo == userModel.id) {
         return res.sendStatus(402);
     }
 
-    const plan = await Plan.findById(order.planId, { state: 1 });
+    const plan = await Plan.findById(order.planId);
     if (plan.state != "accepted" && order.memorizerTo == userModel.id) {
         return res.sendStatus(403);
     }
@@ -35,7 +35,7 @@ exports.changeOrderState = asyncHandeler(async (req, res, next) => {
     if (order.state == "accepted" && order.memorizerTo == userModel.id) {
 
         // const deviceId = (await User.findById());
-        
+
         // await pushNotification(deviceId,
         //     "تم قبول الطلب",
         //     'من قبل المحفظ اضغط للدخول الى الطلب',
@@ -46,5 +46,6 @@ exports.changeOrderState = asyncHandeler(async (req, res, next) => {
     await order.updateOne({
         state: state,
     });
-    return res.sendStatus(200);   
+    order.state = state;
+    return res.status(200).json({ order });
 })

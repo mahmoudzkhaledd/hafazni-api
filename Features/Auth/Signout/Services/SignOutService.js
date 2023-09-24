@@ -7,6 +7,6 @@ exports.signOut = asyncHandeler(async (req, res, next) => {
         deviceId: null,
     });
     console.log(result);
-    res.sendStatus(result.modifiedCount != 0 ? 200 : 401);
+    res.sendStatus(200);
 
 });

@@ -6,6 +6,9 @@ const { pushNotification } = require('../../../../services/Firebase/Notification
 const User = require('../../../../Models/User');
 exports.sendOrderRequest = asyncHandeler(async (req, res, next) => {
     const body = req.body;
+    if (body.memorizerTo == null || body.memorizerTo.length == 0) { 
+        return res.sendStatus(401);
+    }
     body.afterCoupon = null;
     delete body.afterCoupon
     const plan = await Plan.findById(req.params.planId);
@@ -20,6 +23,12 @@ exports.sendOrderRequest = asyncHandeler(async (req, res, next) => {
             } else {
                 body.afterCoupon = plan.price - coupon.discount;
             }
+        }
+    } else {
+        if (plan.afterDiscount != null) {
+            body.afterCoupon = plan.afterDiscount
+        } else {
+            body.afterCoupon = plan.price;
         }
     }
     //const order = await Order.create(body);
@@ -45,6 +54,6 @@ exports.sendOrderRequest = asyncHandeler(async (req, res, next) => {
                     orderId: order._id.toString(),
                 });
     }
-
+    console.log(order)
     res.status(200).json({ order });
 });

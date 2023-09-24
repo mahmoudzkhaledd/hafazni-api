@@ -78,7 +78,7 @@ exports.deleteMemorizerCertificate = asyncHandeler(async (req, res, next) => {
 // readings 
 exports.updateMemorizerAccountType = asyncHandeler(async (req, res, next) => {
     const userModel = res.locals.userModel;
-    const user = await User.findById(userModel.id, { _id: 1, certificant: 1, });
+    const user = await User.findById(userModel.id, { _id: 1, certificant: 1, country: 1, wallet: 1, });
     if (user == null) {
         return res.status(404).json({ msg: "user not found !" });
     }
@@ -102,11 +102,14 @@ exports.updateMemorizerAccountType = asyncHandeler(async (req, res, next) => {
         certificant: url,
         readings: readings,
         description: description,
-        state: process.env.APP_MODE == "dev" ? "accepted" : save == true ? "save" : "pending",
+        country: user.country,
+        state: (process.env.APP_MODE == "dev" && user.wallet != null) ? "accepted" : save == true ? "save" : "pending",
     };
+
     if (url == null) {
         delete options.certificant;
     }
+    console.log(options)
     const memoData = await MemorizerData
         .findOneAndUpdate(
             { userId: userModel.id },

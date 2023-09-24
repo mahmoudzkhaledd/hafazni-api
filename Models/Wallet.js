@@ -1,5 +1,12 @@
 const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.ObjectId,
+        index: true,
+        unique: true,
+        ref: 'User',
+        required: [true, 'user id is required'],
+    },
     pending: {
         type: Number,
         default: 0,
@@ -16,14 +23,7 @@ const schema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    transactions: [{
-        operationType: String,
-        date: Date,
-        orderId: {
-            type: mongoose.Schema.ObjectId,
-            ref: "Order",
-        },
-    }],
+
 }, { timestamps: true, });
 
 module.exports = mongoose.model('Wallet', schema);

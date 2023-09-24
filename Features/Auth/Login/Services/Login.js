@@ -18,7 +18,7 @@ exports.loginUser = asyncHandeler(async (req, res, next) => {
     }
 
     if (user == null
-       // || user.deviceId != null
+        // || user.deviceId != null
     ) return res.status(401)
         .json({ msg: 'Please Check Your Email and Password' });
     if (userModel == null) {
@@ -43,8 +43,8 @@ exports.loginUser = asyncHandeler(async (req, res, next) => {
         });
     }
 
-    await user.updateOne({deviceId:req.body.deviceToken});
-    
+    await user.updateOne({ deviceId: req.body.deviceToken });
+  
     return res.status(200).json({
         user,
         token,

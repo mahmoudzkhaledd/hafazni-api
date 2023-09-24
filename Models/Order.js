@@ -19,7 +19,7 @@ const schema = new mongoose.Schema({
     note: String,
     state: {
         type: String,
-        enum: ['pending', 'sent', 'accepted', 'refused', 'canceled'],
+        enum: ['pending', 'sent', 'accepted', 'running', 'refused', 'canceled'],
         default: 'sent',
     },
     planId: {
