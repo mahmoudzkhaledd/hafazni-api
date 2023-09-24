@@ -47,12 +47,7 @@ exports.searchMemroizer = async (req, res, next) => {
         .skip(begin)
         .limit(end - begin)
         .populate('userId', { firstName: 1, lastName: 1, profilePic: 1, });
-    let c = begin;
-    for (let i = 0; i < users.length; i++) { 
-        users[i]['userId'].firstName = `${c+1}`;
-        c++;
-      
-    }
+
     res.status(200).json({
         result: users,
 
