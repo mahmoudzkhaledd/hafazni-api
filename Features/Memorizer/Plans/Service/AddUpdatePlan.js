@@ -10,6 +10,7 @@ exports.addUpdatePlan = asyncHandeler(async (req, res, next) => {
     } else {
         plan = await Plan.findById(req.body.id);
         delete req.body.id;
+        req.body.state = 'accepted';
         if (plan != null) {
             const x = await plan.updateOne(req.body);
         } else {
