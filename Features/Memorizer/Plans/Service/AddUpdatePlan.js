@@ -6,6 +6,7 @@ exports.addUpdatePlan = asyncHandeler(async (req, res, next) => {
     req.body.memorizerFrom = userModel.id;
     let plan;
     if (req.body.id == null) {
+        req.body.state = 'accepted';
         plan = await Plan.create(req.body);
     } else {
         plan = await Plan.findById(req.body.id);
