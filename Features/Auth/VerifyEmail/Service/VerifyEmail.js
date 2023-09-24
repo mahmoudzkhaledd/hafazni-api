@@ -41,6 +41,7 @@ exports.verifyEmail = async (req, res, next) => {
     }
     await email.deleteOne({});
 
+    userTo.verifiedEmail = true;
     userModel.verifiedEmail = true;
 
     await userTo.save();
