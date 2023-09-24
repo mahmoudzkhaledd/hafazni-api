@@ -36,8 +36,8 @@ const schema = new mongoose.Schema({
     },
     state: {
         type: String,
-        enum: ['pending', 'accepted', 'refused', 'saved','hidden'],
-        default: 'pending',
+        enum: ['pending', 'accepted', 'refused', 'saved', 'hidden'],
+        default: process.env.APP_MODE == 'dev' ? "accepted" : 'pending',
     },
     students: {
         type: Number,
