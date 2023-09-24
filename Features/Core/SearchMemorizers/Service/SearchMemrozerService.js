@@ -51,7 +51,7 @@ exports.searchMemroizer = async (req, res, next) => {
     for (let i = 0; i < users.length; i++) { 
         users[i]['userId'].firstName = `${c+1}`;
         c++;
-        console.log(users[i]['userId'])
+      
     }
     res.status(200).json({
         result: users,

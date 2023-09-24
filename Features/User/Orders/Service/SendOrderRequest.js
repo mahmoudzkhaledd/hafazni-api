@@ -54,6 +54,6 @@ exports.sendOrderRequest = asyncHandeler(async (req, res, next) => {
                     orderId: order._id.toString(),
                 });
     }
-    console.log(order)
+
     res.status(200).json({ order });
 });

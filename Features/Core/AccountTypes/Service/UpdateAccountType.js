@@ -109,7 +109,7 @@ exports.updateMemorizerAccountType = asyncHandeler(async (req, res, next) => {
     if (url == null) {
         delete options.certificant;
     }
-    console.log(options)
+   
     const memoData = await MemorizerData
         .findOneAndUpdate(
             { userId: userModel.id },

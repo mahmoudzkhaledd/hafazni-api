@@ -36,7 +36,7 @@ exports.uploadFile = (file, filePath, fileName) => {
         uploadBytes(fileRef, file.buffer)
             .then(async (result) => res(await getDownloadURL(fileRef)))
             .catch(async (err) => {
-                //console.log(err);
+               
                 rej(err)
             });
     });

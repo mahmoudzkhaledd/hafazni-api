@@ -23,7 +23,7 @@ exports.getOrder = asyncHandeler(async (req, res, next) => {
                 }
             }
         ])
-        console.log(order)
+       
         res.status(200).json({ order: order, });
     } else {
         res.sendStatus(401);

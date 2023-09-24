@@ -6,7 +6,7 @@ exports.signOut = asyncHandeler(async (req, res, next) => {
     const result = await User.updateOne({ _id: userModel.id }, {
         deviceId: null,
     });
-    console.log(result);
+
     res.sendStatus(200);
 
 });
