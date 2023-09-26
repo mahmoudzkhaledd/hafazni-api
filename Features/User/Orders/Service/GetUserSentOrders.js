@@ -21,7 +21,7 @@ exports.getUserSentOrders = asyncHandeler(async (req, res, next) => {
             memorizerTo: userModel.id,
             $and: [
                 { state: { $ne: 'pending' } },
-                { state: { $ne: 'canceled' } },
+           
             ]
         }).populate('userFrom', {
             _id: 1,

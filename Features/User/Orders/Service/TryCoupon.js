@@ -20,7 +20,7 @@ exports.tryCouponPlan = asyncHandeler(async (req, res, next) => {
     const sDate = promoCode.startingDate == null || (Date.now()>= promoCode.startingDate);
     const eDate = promoCode.endingDate == null || (promoCode.endingDate >= Date.now());
 
-    if (promoCode == null || (promoCode.users >= promoCode.maxUsers && promoCode.maxUsers != null) || !promoCode.valid || !sDate || !eDate) {
+    if (promoCode == null || (promoCode.maxUsers != null && promoCode.users >= promoCode.maxUsers) || !promoCode.valid || !sDate || !eDate) {
         return res.status(402).json({
             msg: "promocode is not correct!",
         });

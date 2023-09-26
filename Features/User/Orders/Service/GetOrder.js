@@ -5,7 +5,7 @@ exports.getOrder = asyncHandeler(async (req, res, next) => {
     const userModel = res.locals.userModel;
 
     const order = await Order.findById(req.params.orderId);
-    if((order.state ==  'pending'||order.state == 'canceled') && order.memorizerTo._id == userModel.id){
+    if((order.state ==  'pending') && order.memorizerTo._id == userModel.id){
        return res.sendStatus(401);
     }
     if (order != null && (order.userFrom._id == userModel.id || order.memorizerTo == userModel.id)) {

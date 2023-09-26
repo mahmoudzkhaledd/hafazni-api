@@ -8,7 +8,9 @@ exports.changeOrderState = asyncHandeler(async (req, res, next) => {
     const userModel = res.locals.userModel;
     const state = req.query.state || "pending";
     const order = res.locals.order;
-
+    if (order.state == state || order.state == 'running') { 
+        return res.sendStatus(402);
+    }
     if ((order.state == 'canceled' || order.state == 'running') && order.memorizerTo == userModel.id) {
         return res.sendStatus(402);
     }
@@ -31,21 +33,21 @@ exports.changeOrderState = asyncHandeler(async (req, res, next) => {
     // if ((order.state == "accepted") && order.memorizerTo == userModel.id) {
     //     return res.sendStatus(402);
     // }
-    //order.state = state;
+    order.state = state;
     if (order.state == "accepted" && order.memorizerTo == userModel.id) {
-
-        // const deviceId = (await User.findById());
-
-        // await pushNotification(deviceId,
-        //     "تم قبول الطلب",
-        //     'من قبل المحفظ اضغط للدخول الى الطلب',
-        //     {
-        //         orderId: order._id.toString(),
-        //     });
+        const deviceId = (await User.findById(order.userFrom, { deviceId: 1 })).deviceId;
+        if (deviceId != null) {
+            await pushNotification(deviceId,
+                "تم قبول الطلب",
+                'من قبل المحفظ اضغط للدخول الى الطلب',
+                {
+                    orderId: order._id.toString(),
+                });
+        }
     }
     await order.updateOne({
         state: state,
     });
-    order.state = state;
+
     return res.status(200).json({ order });
 })

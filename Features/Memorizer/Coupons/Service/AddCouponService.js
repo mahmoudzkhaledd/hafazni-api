@@ -3,6 +3,7 @@ const MemorizerData = require('../../../../Models/MemorizerData');
 const PromoCode = require('../../../../Models/PromoCode');
 
 exports.addCoupon = asyncHandeler(async (req, res, next) => {
+    
     const userModel = res.locals.userModel;
     const data = await MemorizerData.findOne({ userId: userModel.id });
     if (data == null) {
@@ -25,10 +26,10 @@ exports.addCoupon = asyncHandeler(async (req, res, next) => {
     }
     req.body.userId = userModel.id;
     if (req.body.startingDate != null) { 
-        req.body.startingDate =  Date(req.body.startingDate);
+        req.body.startingDate =  req.body.startingDate.split(' ')[0];
     }
     if (req.body.endingDate != null) { 
-        req.body.endingDate =  Date(req.body.endingDate);
+        req.body.endingDate =  req.body.endingDate.split(' ')[0];
     }
     const promoCode = await PromoCode.create(req.body);
     data.promoCodes.push(promoCode._id);

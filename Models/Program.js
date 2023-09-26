@@ -4,7 +4,7 @@ const schema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: "User",
         required: [true, "Memorizer Id is required"],
-    },
+    }, 
     name: {
         type: String,
         required: [true, "Name is required"],

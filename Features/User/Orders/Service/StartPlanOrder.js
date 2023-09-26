@@ -1,7 +1,8 @@
 const asyncHandeler = require('express-async-handler');
-const Plan = require('../../../../Models/Plan');
-const Order = require('../../../../Models//Order');
+const PromoCode = require('../../../../Models/PromoCode');
+const Order = require('../../../../Models/Order');
 const Wallet = require('../../../../Models/Wallet');
+const Plan = require('../../../../Models/Plan');
 
 exports.startPlan = asyncHandeler(async (req, res, next) => {
     const userModel = res.locals.userModel;
@@ -26,7 +27,16 @@ exports.startPlan = asyncHandeler(async (req, res, next) => {
     });
     await wallet.save();
     await order.save();
-
+    await Plan.updateOne({ _id: order.planId }, {
+        $inc: { students: 1 }
+    });
+    if (order.promoCode != null) {
+        await PromoCode.updateOne({ _id: order.promoCode }, {
+            $inc: {
+                users: 1,
+            }
+        })
+    }
     res.locals.transaction = [
         {
             walletId: wallet._id,
