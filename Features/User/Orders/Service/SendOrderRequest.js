@@ -2,14 +2,13 @@ const asyncHandeler = require('express-async-handler');
 const Order = require('../../../../Models/Order');
 const Plan = require('../../../../Models/Plan');
 const Coupon = require('../../../../Models/PromoCode');
-const { pushNotification } = require('../../../../services/Firebase/Notifications/PushNotification');
+const { pushNotificationByDeviceId: pushNotification } = require('../../../../services/Firebase/Notifications/PushNotification');
 const User = require('../../../../Models/User');
 exports.sendOrderRequest = asyncHandeler(async (req, res, next) => {
     const body = req.body;
-    if (body.memorizerTo == null || body.memorizerTo.length == 0) { 
+    if (body.memorizerTo == null || body.memorizerTo.length == 0) {
         return res.sendStatus(401);
     }
-    body.afterCoupon = null;
     delete body.afterCoupon
     const plan = await Plan.findById(req.params.planId);
     if (plan == null || plan.state != 'accepted') {
@@ -44,15 +43,16 @@ exports.sendOrderRequest = asyncHandeler(async (req, res, next) => {
         }
     }
     if (order.state == 'sent') {
-        const deviceId = (await User.findById(order.memorizerTo,
-            { deviceId: 1 })).deviceId;
-        if (deviceId != null)
+        const deviceId = (await User.findById(order.memorizerTo, { deviceId: 1 })).deviceId;
+        if (deviceId != null) {
             await pushNotification(deviceId,
                 'طلب تدريب جديد',
                 "طلب تدريب جديد, اضغط لمعرفة التفاصيل",
                 {
                     orderId: order._id.toString(),
                 });
+        }
+
     }
 
     res.status(200).json({ order });

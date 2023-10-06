@@ -4,9 +4,11 @@ const userRoute = require('./User/UserRoutes');
 const coreRoute = require('./Core/CoreRoutes');
 const memorizerRoute = require('./Memorizer/MemorizerRoutes');
 const { validatorMiddleware } = require('../middlewares/UserValidatorMiddleware');
+const { appValidatorMiddleWare } = require('../middlewares/AppValidatorMiddleware');
 
 
 
+appRoute.use(appValidatorMiddleWare);
 
 appRoute.use(authRoutes);
 

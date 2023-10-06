@@ -2,13 +2,13 @@ const asyncHandeler = require('express-async-handler');
 const Plan = require('../../../../Models/Plan');
 //const User = require('../../../../Models/User');
 
-const { pushNotification } = require('../../../../services/Firebase/Notifications/PushNotification');
+const { pushNotificationByDeviceId: pushNotification } = require('../../../../services/Firebase/Notifications/PushNotification');
 const User = require('../../../../Models/User');
 exports.changeOrderState = asyncHandeler(async (req, res, next) => {
     const userModel = res.locals.userModel;
     const state = req.query.state || "pending";
     const order = res.locals.order;
-    if (order.state == state || order.state == 'running') { 
+    if (order.state == state || order.state == 'running') {
         return res.sendStatus(402);
     }
     if ((order.state == 'canceled' || order.state == 'running') && order.memorizerTo == userModel.id) {
@@ -32,10 +32,11 @@ exports.changeOrderState = asyncHandeler(async (req, res, next) => {
 
     // if ((order.state == "accepted") && order.memorizerTo == userModel.id) {
     //     return res.sendStatus(402);
-    // }
+    // } 
     order.state = state;
-    if (order.state == "accepted" && order.memorizerTo == userModel.id) {
+    if ((order.state == "accepted" || order.state == "refused") && order.memorizerTo == userModel.id) {
         const deviceId = (await User.findById(order.userFrom, { deviceId: 1 })).deviceId;
+
         if (deviceId != null) {
             await pushNotification(deviceId,
                 "تم قبول الطلب",
@@ -48,6 +49,6 @@ exports.changeOrderState = asyncHandeler(async (req, res, next) => {
     await order.updateOne({
         state: state,
     });
-
+    console.log(order)
     return res.status(200).json({ order });
 })

@@ -5,7 +5,7 @@ const configDbConnection = require('./Configs/DB_Config');
 const errorHandeler = require('./Error_Handeler/ErrorsHandelerModule');
 const appRoute = require('./Features/AppRoutes');
 const PORT = process.env.PORT;
-// ./ServerConfigs/adminSKD.json
+
 app.use(express.json());
 
 configDbConnection();

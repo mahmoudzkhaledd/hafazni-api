@@ -11,15 +11,11 @@ exports.validatorMiddleware = async (req, res, next) => {
         } else {
             res.locals.userModel = userModel;
             return next();
-           // const user = await User.findById(userModel.id, { _id: 1, deviceId: 1, });
-            if (user != null) {
-               // res.locals.userModel.deviceId = user.deviceId;
-                return next();
-            } else {
-                return res.status(455).json({ "msg": "Unauthorized !" });
-            }
         }
     } catch (err) {
+        if (req.originalUrl == '/signout') {
+            return next();
+        }
         return res.status(455).json({ "msg": "Unauthorized !" });
     }
 }
