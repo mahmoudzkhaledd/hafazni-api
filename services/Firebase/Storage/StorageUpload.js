@@ -29,7 +29,7 @@ exports.uploadFile = (file, filePath, fileName) => {
         const splt = file.originalname.split('.');
         const fName = `${fileName}.${splt.length == 0 ? "png" : splt[1]}`;
         const storageRef = ref(storage, `${filePath}`);
-        const result = await listAll(storageRef);
+        //const result = await listAll(storageRef);
         const fileRef = ref(storage, `${filePath}/${fName}`);
         uploadBytes(fileRef, file.buffer)
             .then(async (result) => res(await getDownloadURL(fileRef)))

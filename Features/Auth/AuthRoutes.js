@@ -7,7 +7,6 @@ const signOutRoute = require('./Signout/SignOutRoute');
 appRouter.use('/signout', signOutRoute);
 appRouter.use('/login', loginRoutes);
 appRouter.use('/signup', signupRoutes);
-
 appRouter.use('/verify-account', verifyEmail);
 
 module.exports = appRouter;

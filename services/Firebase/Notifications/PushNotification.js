@@ -28,7 +28,7 @@ exports.pushNotificationByDeviceId = (deviceId, title, body, data) => {
             })
 
 
-            console.log(response);
+         
             // const response = await axios.post({
             //     url: 'https://fcm.googleapis.com/fcm/send',
             //     method: 'POST',

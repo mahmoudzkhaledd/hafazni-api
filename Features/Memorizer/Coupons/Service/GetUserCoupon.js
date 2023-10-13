@@ -19,7 +19,7 @@ exports.getUserCoupons = asyncHandeler(async (req, res, next) => {
             }
         ]
     } : { userId: userModel.id, };
-    console.log(opts)
+
     const coupons = await PromoCode.find(opts);
 
     res.status(200).json({ coupons: coupons });

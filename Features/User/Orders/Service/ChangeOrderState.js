@@ -49,6 +49,6 @@ exports.changeOrderState = asyncHandeler(async (req, res, next) => {
     await order.updateOne({
         state: state,
     });
-    console.log(order)
+   
     return res.status(200).json({ order });
 })

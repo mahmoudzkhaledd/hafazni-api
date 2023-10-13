@@ -7,8 +7,7 @@ const { validatorMiddleware } = require('../middlewares/UserValidatorMiddleware'
 const { appValidatorMiddleWare } = require('../middlewares/AppValidatorMiddleware');
 
 
-
-appRoute.use(appValidatorMiddleWare);
+//appRoute.use(appValidatorMiddleWare);
 
 appRoute.use(authRoutes);
 
