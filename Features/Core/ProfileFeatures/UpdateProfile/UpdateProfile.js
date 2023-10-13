@@ -1,5 +1,6 @@
 const { uploadFile, deleteFile } = require('../../../../services/Firebase/Storage/StorageUpload');
 const User = require('../../../../Models/User');
+const configs = require('../../../../ServerConfigs/ServerConfigs.json');
 
 exports.updateProfile = async (req, res, next) => {
     const userModel = res.locals.userModel;
@@ -8,7 +9,7 @@ exports.updateProfile = async (req, res, next) => {
         req.body.birthdate = req.body.birthdate.split(' ')[0];
     }
     const result = await User.findOneAndUpdate({ _id: userModel.id }, req.body, {
-        returnOriginal: false
+         returnOriginal: false
     });
     res.status(200).json({ result });
 }
@@ -17,6 +18,12 @@ exports.uploadPhoto = async (req, res, next) => {
     const user = await User.findById(userModel.id);
     if (user == null) {
         return res.sendStatus(404);
+    }
+    if (user.profilePic != null) { 
+        await deleteFile(user.profilePic);
+    }
+    if(req.file.size > configs.maxFileSize){
+        return res.sendStatus(401);
     }
     const url = await uploadFile(req.file, `users/${user._id}`, 'profilePic');
     if (url != null) {
