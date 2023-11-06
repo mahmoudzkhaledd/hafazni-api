@@ -104,7 +104,7 @@ exports.updateMemorizerAccountType = asyncHandeler(async (req, res, next) => {
         readings: readings,
         description: description,
         country: user.country,
-        state: (process.env.APP_MODE == "dev" && user.wallet != null) ? "accepted" : save == true ? "save" : "pending",
+        state: "accepted",
     };
 
     if (url == null) {
